@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:textSize="60dp"
+        />
+
+
+
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@null"
+        android:src="@drawable/signlanguage"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:text="손으로 말해요"
+        android:textSize="30dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:textSize="50dp"
+        />
+    <ImageButton
+        android:id="@+id/cam_btn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="0dp"
+        android:src="@drawable/diaphragm"
+        android:scaleType="centerInside"
+        android:background="@android:color/white"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:text="손으로 말하기"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#00adb5"
+        android:gravity="center"
+        android:text="카메라 사용전에 Bluetooth 연결을 해야 원활한 사용이 가능합니다."
+        android:textSize="13dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:textSize="40dp"
+        />
+
+    <Button
+        android:id="@+id/blue_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Bluetooth connect"
+        android:background="@drawable/btn_blue"
+        android:textColor="#ffffff"/>
+</LinearLayout>
