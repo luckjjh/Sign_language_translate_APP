@@ -3,12 +3,16 @@ package com.example.handtalk;
 import android.app.Application;
 
 public class MyApp extends Application {
-    private static char gValue = '0';
-
-    public char getgValue(){
+    private String gValue;
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        gValue = "Z";
+    }
+    public String getgValue(){
         return gValue;
     }
-    public void setgValue(char mV){
+    public void setgValue(String mV){
         this.gValue=mV;
     }
 }

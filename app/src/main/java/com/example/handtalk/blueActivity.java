@@ -43,7 +43,6 @@ public class blueActivity extends AppCompatActivity {
     BluetoothAdapter mBluetoothAdapter;
     Set<BluetoothDevice> mPairedDevices;
     List<String> mListPairedDevices;
-    public static Queue<Character> dataSet;
     Button backBtn;
     Handler mBluetoothHandler;
     ConnectedBluetoothThread mThreadConnectedBluetooth;
@@ -54,7 +53,6 @@ public class blueActivity extends AppCompatActivity {
     final static int BT_MESSAGE_READ = 2;
     final static int BT_CONNECTING_STATUS = 3;
     final static UUID BT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-    String wordA="a";
     @SuppressLint("HandlerLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +97,7 @@ public class blueActivity extends AppCompatActivity {
             public void handleMessage(android.os.Message msg) {
                 if (msg.what == BT_MESSAGE_READ) {
                     String readMessage = null;
+                    MyApp myApp = (MyApp)getApplicationContext();
                     try {
                         readMessage = new String((byte[]) msg.obj, "UTF-8");
 
@@ -109,75 +108,68 @@ public class blueActivity extends AppCompatActivity {
                     mTvReceiveData.setText(readMessage);
                     if(readMessage.charAt(0)=='A'){
                         checkImg.setImageResource(R.drawable.checkfile);
-                        ((MyApp) getApplication()).setgValue('A');
-                        Log.v("//////////////////",String.valueOf(((MyApp) getApplication()).getgValue()));
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='B'){
-                        ((MyApp) getApplication()).setgValue('B');
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='C'){
-                        ((MyApp) getApplication()).setgValue('C');
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='D'){
-                        ((MyApp) getApplication()).setgValue('D');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='E'){
-                        ((MyApp) getApplication()).setgValue('E');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='F'){
-                        ((MyApp) getApplication()).setgValue('F');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='G'){
-                        ((MyApp) getApplication()).setgValue('G');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='H'){
-                        ((MyApp) getApplication()).setgValue('H');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='I'){
-                        ((MyApp) getApplication()).setgValue('I');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='J'){
-                        ((MyApp) getApplication()).setgValue('J');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='K'){
-                        ((MyApp) getApplication()).setgValue('K');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='L'){
-                        ((MyApp) getApplication()).setgValue('L');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='M'){
-                        ((MyApp) getApplication()).setgValue('M');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                     else if(readMessage.charAt(0)=='N'){
-                        ((MyApp) getApplication()).setgValue('N');
-
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
-                    else{
-                        ((MyApp) getApplication()).setgValue('Z');
+                    else if(readMessage.charAt(0)=='Z'){
+                        myApp.setgValue(String.valueOf(readMessage.charAt(0)));
+                        Log.v("//////////////////",myApp.getgValue());
                     }
                 }
             }
-        };/*
-        if(mTvReceiveData.length()!=0) {
-            if (mTvReceiveData.getText().charAt(0) == 'A') {
-                myApp.setgValue('A');
-            }
-            else{
-                myApp.setgValue('Z');
-            }
-        }
-        Log.v("//////////////////",String.valueOf(myApp.getgValue()));*/
-
+        };
     }
 
     void bluetoothOn() {
@@ -267,7 +259,7 @@ public class blueActivity extends AppCompatActivity {
         }
     }
 
-    private class ConnectedBluetoothThread extends Thread {
+    public class ConnectedBluetoothThread extends Thread {
         private final BluetoothSocket mmSocket;
         private final InputStream mmInStream;
         private final OutputStream mmOutStream;

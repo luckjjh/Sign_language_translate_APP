@@ -10,16 +10,15 @@
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+    </WebView>
 
     <TextView
         android:id="@+id/resultTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:visibility="invisible"
-        android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="#eeeeee"
         android:gravity="center"
@@ -27,5 +26,35 @@
         android:textColor="#00adb5"
         android:textSize="25dp" />
 
+    <TextView
+        android:id="@+id/nowTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="현재 인식 텍스트"
+        android:background="#eeeeee"
+        android:gravity="center"
+        android:textColor="#00adb5"
+        android:layout_below="@id/resultTextView"
+        android:textSize="20dp"/>
+    <TextView
+        android:id="@+id/nowInputTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:background="#eeeeee"
+        android:gravity="center"
+        android:textColor="#00adb5"
+        android:layout_below="@id/nowTextView"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear Text"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/webView"
+        android:background="@drawable/custom_ripple_effect"
+        android:textSize="20dp"/>
 
 </RelativeLayout>
