@@ -170,7 +170,7 @@ public class camActivity extends AppCompatActivity {
                                     jasolist.add("ㅚ");
                                     lastestHnagul = "ㅚ";
                                     setResultText(hangul);
-                                }
+                                }//
                                 else{
                                     nowInputT.setText(" ");
                                 }
