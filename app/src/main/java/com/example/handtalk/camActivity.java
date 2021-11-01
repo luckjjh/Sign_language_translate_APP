@@ -1,5 +1,6 @@
 package com.example.handtalk;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
 import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -42,6 +44,7 @@ public class camActivity extends AppCompatActivity {
     Button clearBtn;
     String lastestHangul = "";
     String lastestHnagul = "z";
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +55,10 @@ public class camActivity extends AppCompatActivity {
         // 웹뷰 셋팅
         mWebView = (WebView) findViewById(R.id.webView);//xml 자바코드 연결
         mWebView.getSettings().setJavaScriptEnabled(true);//자바스크립트 허용
-
+        WebSettings webSettings = mWebView.getSettings();
         mWebView.loadUrl(myUrl);//웹뷰 실행
         mWebView.setWebViewClient(new WebViewClientClass());//새창열기 없이 웹뷰 내에서 다시 열기//페이지 이동 원활히 하기위해 사용
-
+        webSettings.setMediaPlaybackRequiresUserGesture(false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {//디버깅 용 코드
             WebView.setWebContentsDebuggingEnabled(true);
@@ -85,7 +88,7 @@ public class camActivity extends AppCompatActivity {
                             //do stuff
                             MyApp myApp = (MyApp)getApplicationContext();
                             String hangul = "";
-                            if(dominantV!=null&&dominantV.equals("BHD")){
+                            if(dominantV!=null&&dominantV.equals("HBD")){
                                 if(myApp.getgValue().equals("A")){
                                     jasolist.add("ㄱ");
                                     setResultText(hangul);
@@ -125,7 +128,7 @@ public class camActivity extends AppCompatActivity {
                                     nowInputT.setText(" ");
                                 }
                             }
-                            else if(dominantV!=null&&dominantV.equals("BHL")){
+                            else if(dominantV!=null&&dominantV.equals("HBL")){
                                 if(myApp.getgValue().equals("A")){
                                     jasolist.add("ㄴ");
                                     setResultText(hangul);
@@ -155,7 +158,7 @@ public class camActivity extends AppCompatActivity {
                                     nowInputT.setText(" ");
                                 }
                             }
-                            else if(dominantV!=null&&dominantV.equals("BHU")){
+                            else if(dominantV!=null&&dominantV.equals("HBU")){
                                 if(myApp.getgValue().equals("K")){
                                     jasolist.add("ㅗ");
                                     lastestHnagul = "ㅗ";
@@ -175,7 +178,7 @@ public class camActivity extends AppCompatActivity {
                                     nowInputT.setText(" ");
                                 }
                             }
-                            else if(dominantV!=null&&dominantV.equals("FHR")){
+                            /*else if(dominantV!=null&&dominantV.equals("FHR")){
                                 if(myApp.getgValue().equals("K")){
                                     jasolist.add("ㅓ");
                                     setResultText(hangul);
@@ -194,15 +197,20 @@ public class camActivity extends AppCompatActivity {
                                 else{
                                     nowInputT.setText(" ");
                                 }
-                            }
-                            else if(dominantV!=null&&dominantV.equals("FHU")){
-                                /*if(myApp.getgValue().equals("B")){
+                            }*/
+                            else if(dominantV!=null&&dominantV.equals("HFU")){
+                                if(myApp.getgValue().equals("I")){
                                     jasolist.add("ㅁ");
                                     setResultText(hangul);
-                                }*/
+                                }
                                 if(myApp.getgValue().equals("D")){
                                     jasolist.add("ㅂ");
                                     lastestHnagul = "ㅂ";
+                                    setResultText(hangul);
+                                }
+                                else if(myApp.getgValue().equals("E")){
+                                    jasolist.add("ㅇ");
+                                    lastestHnagul = "ㅇ";
                                     setResultText(hangul);
                                 }
                                 else if(myApp.getgValue().equals("K")){
@@ -230,11 +238,11 @@ public class camActivity extends AppCompatActivity {
                                     lastestHnagul = "ㅒ";
                                     setResultText(hangul);
                                 }
-                                else if(myApp.getgValue().equals("I")){
+                                /*else if(myApp.getgValue().equals("I")){
                                     jasolist.add("ㅍ");
                                     lastestHnagul = "ㅍ";
                                     setResultText(hangul);
-                                }
+                                }*/
                                 else{
                                     nowInputT.setText(" ");
                                 }
@@ -249,6 +257,24 @@ public class camActivity extends AppCompatActivity {
                                     jasolist.add("ㅖ");
                                     lastestHnagul = "ㅖ";
                                     setResultText(hangul);
+                                }
+                                else if(myApp.getgValue().equals("K")){
+                                    jasolist.add("ㅓ");
+                                    setResultText(hangul);
+                                    lastestHnagul = "ㅓ";
+                                }
+                                else if(myApp.getgValue().equals("B")){
+                                    jasolist.add("ㅕ");
+                                    lastestHnagul = "ㅕ";
+                                    setResultText(hangul);
+                                }
+                                else if(myApp.getgValue().equals("J")){
+                                    jasolist.add("ㅎ");
+                                    lastestHnagul = "ㅎ";
+                                    setResultText(hangul);
+                                }
+                                else{
+                                    nowInputT.setText(" ");
                                 }
                             }
                         }
