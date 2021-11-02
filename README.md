@@ -16,6 +16,9 @@
 ## 동작 영상
 <img src=https://user-images.githubusercontent.com/68142773/139814531-982a53fe-a833-404d-9afd-1a6c1cb4f415.gif  width="300" height="600"/>
 
+## 학습한 수화
+<img src=https://user-images.githubusercontent.com/68142773/139819868-fdf7e581-5bc6-43a0-a740-ae16043a51c7.png  width="600" height="600"/>
+
 ## 주요 코드
  -activity_blue.xml
 > 수화번역 장갑과 블루투스 연결을 위한 activity layout
