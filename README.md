@@ -47,7 +47,7 @@
 <img src=https://user-images.githubusercontent.com/68142773/139814076-d57ee8b8-5625-4d78-af6f-0d7b882f4017.png  width="300" height="600"/></br>
 
 -camActivity.java
-> blueActivity.java의 센서값과 WebView를 통해 학습데이터 중 가장 큰 값을 나타내는 값을 매칭시켜 알맞은 수화를 텍스트로 출력
+> blueActivity.java의 센서값과 [WebView](https://github.com/luckjjh/Sign_language_translate_Web)를 통해 학습데이터 중 가장 큰 값을 나타내는 값을 매칭시켜 알맞은 수화를 텍스트로 출력
 <img src=https://user-images.githubusercontent.com/68142773/139814401-ac52d88e-cd71-43f0-a918-14b0fffdd516.png  width="300" height="600"/>
 
 
